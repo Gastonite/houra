@@ -2,39 +2,47 @@
   "name": "houra",
   "version": "0.1.0",
   "description": "Hapi based framework",
-  "main": "lib/index.js",
+  "main": "lib/houra/houra.js",
   "scripts": {
-    "test": "lab -vcCD test",
-    "test-watch": "fsmonitor -s -p '+*.js' npm test"
+    "test": "istanbul cover ./node_modules/lab/bin/lab --report lcovonly  -- -l  && codecov",
+    "test-all": "lab -vcCD",
+    "test-houra": "lab -vcCD --coverage-path ./lib/houra test/houra.js",
+    "test-recipe": "lab -vcCD --coverage-path ./lib/recipe test/recipe.js",
+    "test-step": "lab -vcCD --coverage-path ./lib/step test/step.js",
+    "test-directory": "lab -vcCD --coverage-path ./lib/directory test/directory.js",
+    "testwatch": "fsmonitor -s -p '+*.js' npm run test"
   },
   "author": [
     "Clément Pasquier <clement@n00sphere.net>",
     "Nicolas Dufreche <n.dufreche@gmail.com>"
   ],
-  "license": "MIT",
-  "dependencies": {
-    "bluebird": "^3.4.1",
-    "cocobag": "git+https://github.com/hapipip/cocobag.git#master",
-    "glue": "3.2.1",
-    "good": "^7.0.1",
-    "good-console": "^6.1.2",
-    "good-squeeze": "^4.0.0",
-    "hoek": "^4.0.2",
-    "joi": "^9.0.4",
-    "maite": "git+https://github.com/hapipip/maite.git#master",
-    "uhu": "git+https://github.com/hapipip/uhu.git#master"
-  },
-  "devDependencies": {
-    "code": "^3.0.2",
-    "eslint": "^3.5.0",
-    "fsmonitor": "^0.2.4",
-    "hapi-router": "^3.5.0",
-    "lab": "^11.0.1",
-    "mustache": "^2.2.1",
-    "vision": "^4.1.0"
-  },
+  "license": "ISC",
   "engines": {
     "node": ">=6.x.x",
     "npm": ">=3.x.x"
+  },
+  "devDependencies": {
+    "code": "^4.0.0",
+    "codecov": "^1.0.1",
+    "coveralls": "^2.11.14",
+    "fsmonitor": "^0.2.4",
+    "houra-recipe": "git+https://github.com/Gastonite/houra-recipe.git#master",
+    "istanbul": "^0.4.5",
+    "lab": "^11.1.0",
+    "rewire": "^2.5.2"
+  },
+  "dependencies": {
+    "@f/is-iterable": "^1.0.1",
+    "bluebird": "^3.4.6",
+    "find-pkg": "^0.1.2",
+    "glue": "^4.0.0",
+    "good": "^7.0.2",
+    "good-console": "^6.1.2",
+    "good-squeeze": "^5.0.0",
+    "lodash.find": "^4.6.0",
+    "lodash.get": "^4.4.2",
+    "lodash.trim": "^4.5.1",
+    "pellmell": "git+https://github.com/Gastonite/pellmell.git#master",
+    "resolve-module-path": "0.0.6"
   }
 }

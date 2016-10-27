@@ -1,8 +1,0 @@
-database:
-  connection:
-    user: root
-    password: ~
-    host: localhost
-    database: houra
-    port: 3306
-    encoding: utf-8
