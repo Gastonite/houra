@@ -24,7 +24,6 @@
   "devDependencies": {
     "code": "^4.0.0",
     "codecov": "^1.0.1",
-    "coveralls": "^2.11.14",
     "fsmonitor": "^0.2.4",
     "houra-recipe": "git+https://github.com/Gastonite/houra-recipe.git#master",
     "istanbul": "^0.4.5",
